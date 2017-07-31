@@ -13,6 +13,14 @@ app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
+app.get('/install', function(request,response) {
+  response.render('pages/install');
+});
+
+app.post('slack-do-something', function(request, response) {
+  response.send('gotcha');
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
