@@ -11,16 +11,33 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+app.get('/slack', function(request, response) {
+  response.format({
+    'text/plain': function(){
+      response.send('hey');
+    },
+
+    'text/html': function(){
+      response.send('<p>hey</p>');
+    },
+
+    'application/json': function(){
+      response.send({ message: 'hey' });
+    },
+
+    'default': function() {
+      // log the request and respond with 406
+      response.status(406).send('Not Acceptable');
+    }
+  });
+});
+
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
 
 app.get('/install', function(request,response) {
   response.render('pages/install');
-});
-
-app.post('slack-do-something', function(request, response) {
-  response.send('gotcha');
 });
 
 app.listen(app.get('port'), function() {
