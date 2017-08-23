@@ -20,7 +20,8 @@ app.use(responseTime());
 // if a user visits /api/slack
 app.get('/api/slack/:thing', function(req, res) {
   var thing = req.params.thing;
-  res.send({"something": thing});
+  var challenge = req.params.challenge;
+  res.send({"challenge": challenge });
 });
 
 app.listen(app.get('port'), function(){
