@@ -22,7 +22,7 @@ app.get('/slack', function(request, response) {
     },
 
     'application/json': function(){
-      response.send({ message: 'hey' });
+      response.send({ message: 'testing' });
     },
 
     'default': function() {
