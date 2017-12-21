@@ -18,7 +18,7 @@ app.get('/slack', function(request, response) {
     },
 
     'text/html': function(){
-      response.send('<p>hey</p>');
+      response.send('<p>hello</p>');
     },
 
     'application/json': function(){
